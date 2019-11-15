@@ -1,4 +1,5 @@
 class Instructor::CoursesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :authenticate_user!
 
   def new
@@ -30,7 +31,9 @@ class Instructor::CoursesController < ApplicationController
     @current_course ||= Course.find(params[:id])
   end
 
+  helper_method :current_user
+
   def course_params
-    params.require(:course).permit(:title, :description, :cost)
+    params.require(:course).permit(:title, :description, :cost, :image)
   end
 end
