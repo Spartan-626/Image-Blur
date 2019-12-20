@@ -26,34 +26,47 @@ class Stack
 
     
     def push(value)
-        @data = LinkedListNode.new(value, @data)
+    #     if @data == nil
+    #        return "nil"
+    #     else 
+             @data = LinkedListNode.new(value, @data)
+    #     end
     end
-
-    # def pop
-    #     out = @data.value
-    #     @data = LinkedListNode.new(@data.next_node.value, @data.next_node.next_node)
-    #     puts out
-    #     return out
-    # end
 
     def pop
         out = @data.value
-        if @data = LinkedListNode.new(@data.next_node.value, @data.next_node.next_node)
-            puts out
-        else
-        return out
-        end
+        @data = LinkedListNode.new(@data.next_node.value, @data.next_node.next_node)
+        puts out
     end
+
+    # def pop
+    #     out = ""
+
+    #     if @data.next_node == nil
+    #         out = "nil"
+    #         return out
+    #     elsif @data.next_node != nil
+    #         out = @data.value
+    #         @data = LinkedListNode.new(@data.next_node.value, @data.next_node.next_node)
+    #         puts out
+    #     else
+    #         return out
+    #     end
+    # end
 
 end
 
 def reverse_list(list)
+    new_list = Stack.new
 
     while list
-        
-        list = list.next_node
+        current_value = list.pop
+        puts current_value
+        new_list.push(current_value)
+        #list = list.next_node
     end
 
+    return new_list
 end
 
 node1 = LinkedListNode.new(37)
@@ -71,6 +84,12 @@ puts "-------"
 stack = Stack.new
 stack.push(1)
 stack.push(2)
+stack.push(3)
+stack.push(4)
+stack.push(5)
+stack.push(6)
+stack.push(7)
 stack.pop
-stack.pop
-
+#stack.pop
+reverse_list = reverse_list(stack)
+print_values(stack)
