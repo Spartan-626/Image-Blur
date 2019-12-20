@@ -14,7 +14,7 @@ class Image
             x = 0
             row.each do |column|
                    @found_ones.each do |one|
-                        if distance(one, [y, x])
+                        if distance(one, [y, x]) == 1
                             @data[y][x] = 1
                         end
                    end
@@ -41,7 +41,6 @@ class Image
     end
 
     def distance(p1, p2)
-        puts @data
         return (p2[1] - p1[1]).abs + (p2[0] - p1[0]).abs
     end
 end
