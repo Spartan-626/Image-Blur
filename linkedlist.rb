@@ -26,33 +26,33 @@ class Stack
 
     
     def push(value)
-    #     if @data == nil
-    #        return "nil"
-    #     else 
+        if @data == nil
+           return "nil"
+        else 
              @data = LinkedListNode.new(value, @data)
-    #     end
-    end
-
-    def pop
-        out = @data.value
-        @data = LinkedListNode.new(@data.next_node.value, @data.next_node.next_node)
-        puts out
+        end
     end
 
     # def pop
-    #     out = ""
-
-    #     if @data.next_node == nil
-    #         out = "nil"
-    #         return out
-    #     elsif @data.next_node != nil
-    #         out = @data.value
-    #         @data = LinkedListNode.new(@data.next_node.value, @data.next_node.next_node)
-    #         puts out
-    #     else
-    #         return out
-    #     end
+    #     out = @data.value
+    #     @data = LinkedListNode.new(@data.next_node.value, @data.next_node.next_node)
+    #     puts out
     # end
+
+    def pop
+        out = ""
+
+        if @data.next_node == nil
+            out = "nil"
+            return out
+        elsif @data.next_node != nil
+            out = @data.value
+            @data = LinkedListNode.new(@data.next_node.value, @data.next_node.next_node)
+            puts out
+        else
+            return out
+        end
+    end
 
 end
 
